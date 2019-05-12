@@ -6,10 +6,15 @@ class MapQuickFindSpec extends FunSuite with DiagrammedAssertions {
   test("MapQuickFind should behave as expected") {
     val myUnionFind = new MapQuickFind[Int]
 
-    myUnionFind.union(0, 0)
-    myUnionFind.union(7, 0)
-    myUnionFind.union(3, 4)
-    myUnionFind.union(7, 4)
+    myUnionFind.union(4, 3)
+    myUnionFind.union(3, 8)
+    myUnionFind.union(6, 5)
+    myUnionFind.union(9, 4)
+    myUnionFind.union(2, 1)
+    myUnionFind.union(5, 0)
+    myUnionFind.union(7, 2)
+    myUnionFind.union(6, 1)
+    myUnionFind.union(7, 3)
 
     assert(myUnionFind.count == 1)
 

@@ -2,9 +2,9 @@ package algorithms.unionFind
 
 import org.scalatest._
 
-class MapQuickUnionSpec extends FunSuite with DiagrammedAssertions {
-  test("MapQuickUnion should behave as expected") {
-    val myUnionFind = new MapQuickUnion[Int]
+class MapWeightedQuickUnionSpec extends FunSuite with DiagrammedAssertions {
+  test("MapWeightedQuickUnion should behave as expected") {
+    val myUnionFind = new MapWeightedQuickUnion[Int]
 
     myUnionFind.union(4, 3)
     myUnionFind.union(3, 8)
@@ -16,8 +16,6 @@ class MapQuickUnionSpec extends FunSuite with DiagrammedAssertions {
     myUnionFind.union(6, 1)
     myUnionFind.union(7, 3)
 
-    assert(myUnionFind.count == 1)
-
-    assert(myUnionFind.connected(3, 4))
+    assert(myUnionFind.getSizes.values.max == 3)
   }
 }
