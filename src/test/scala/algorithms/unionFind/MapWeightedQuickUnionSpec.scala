@@ -16,6 +16,6 @@ class MapWeightedQuickUnionSpec extends FunSuite with DiagrammedAssertions {
     myUnionFind.union(6, 1)
     myUnionFind.union(7, 3)
 
-    assert(myUnionFind.getSizes.values.max == 3)
+    assert(myUnionFind.getSizes == Map(6 -> 10))
   }
 }

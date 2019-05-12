@@ -18,7 +18,7 @@ class MapWeightedQuickUnion[T] extends UnionFind[T] {
       roots     = roots.updated(shortRoot, tallRoot)
       rootSizes = rootSizes.updated(
         tallRoot,
-        rootSizes(tallRoot) max (rootSizes(shortRoot) + 1)
+        rootSizes(tallRoot) + rootSizes(shortRoot)
       ) - shortRoot
     }
   }
