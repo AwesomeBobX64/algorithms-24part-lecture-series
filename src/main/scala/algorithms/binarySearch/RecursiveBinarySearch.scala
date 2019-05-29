@@ -1,10 +1,10 @@
 package algorithms.binarySearch
 
 class RecursiveBinarySearch extends BinarySearch[Int] {
-  def exists(elements: Array[Int], key: Int): Int = recursiveSearch(elements, key, elements.length, 0)
+  def exists(elements: Array[Int], key: Int): Int = recursiveSearch(elements, key)()
 
   @scala.annotation.tailrec
-  private def recursiveSearch(elements: Array[Int], key: Int, high: Int = 0, low: Int = 0): Int = {
+  private def recursiveSearch(elements: Array[Int], key: Int)(high: Int = elements.length, low: Int = 0): Int = {
     val mid: Int = low + (high - low) / 2
 
     if (low > high) {
@@ -14,9 +14,9 @@ class RecursiveBinarySearch extends BinarySearch[Int] {
       if (difference == 0) {
         mid
       } else if (difference < 0) {
-        recursiveSearch(elements, key, mid - 1, low)
+        recursiveSearch(elements, key)(mid - 1, low)
       } else {
-        recursiveSearch(elements, key, high, mid + 1)
+        recursiveSearch(elements, key)(high, mid + 1)
       }
     }
   }
