@@ -32,16 +32,17 @@ class MapWeightedQuickUnion[T] extends UnionFind[T] {
     if (aValue == a) a else findRoot(aValue)
   }
 
-  def find(a: T): T = roots.getOrElse(a, {insert(a); a})
+  def find(a: T): T = roots.getOrElse(
+    a,
+    {
+      roots     = roots + (a -> a)
+      rootSizes = rootSizes + (a -> 1)
 
-  private def insert(a: T): Unit = {
-    roots     = roots + (a -> a)
-    rootSizes = rootSizes + (a -> 1)
-  }
+      a
+    }
+  )
 
   def count: Int = roots.values.map(findRoot).toSet.size
-
-  def getElements: Map[T, T] = roots
 
   def getSizes: Map[T, Int] = rootSizes
 }

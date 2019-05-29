@@ -31,6 +31,4 @@ class MapQuickUnion[T] extends UnionFind[T] {
   )
 
   def count: Int = elements.values.map(findRoot).toSet.size
-
-  def getElements = elements
 }
